@@ -57,8 +57,9 @@ def startGame():
     print("You are walking down a very dull and wet street at night!\nYou see a stray cat!")
     print("You can (T)Take the cat with you\nOR\nYou can (G)Give the cat to the vets!")
     
-    
+    #Asks for answer
     s1 = input("\tAnswer:")
+    
     
     if s1 == "T":
         print("You take the cat but it was addressed to The Capital ")
