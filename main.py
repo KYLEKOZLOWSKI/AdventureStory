@@ -1,3 +1,5 @@
+# Kyle Kozlowski 27/06/2019
+
 import random
 import time
 ################################################
@@ -9,6 +11,8 @@ question_no = 0
 ################################################
 
 def startGame():
+    global health
+    global run
     global question_no
     def correct(correct):
         global question_no
@@ -39,28 +43,29 @@ def startGame():
     username = input("\tWhat is your name? ")
     #Capatilises the username
     username = username.title()
-    print("Ok...Let me remember that!")
+    print("Ok... Let me remember that!")
     #Makes it seem like it is trying to store it
-    time.sleep(3)
+    time.sleep(2)
     print("Done!")
     #Greets user
     print("Hello," + " " + username + "!")
+    input("Press enter to continue")
     #Tells them there health
     print("You have " + str(health) + " health!")
     #Tells them to answer in capitals
     print("\tWhen you are asked something like this:\n\t(A)Animal (O)Other\n\tAnswer with a capital letter: A not a")
     
-    
+    input("Press enter to begin")
     
     #Story (Question 1)
-    print("\t-==The Street==-")
+    print("\n\n\n\t-==The Street==-")
     print("You are walking down a very dull and wet street at night!\nYou see a stray cat!")
     print("You can (T)Take the cat with you\nOR\nYou can (G)Give the cat to the vets!")
     
     #Asks for answer
     s1 = input("\tAnswer:")
     
-    
+    # Checks what route they want ot take
     if s1 == "T":
         print("You take the cat but it was addressed to The Capital ")
         s11 = input("What is the capital of United Kingdom?")
@@ -73,11 +78,13 @@ def startGame():
         print("What is the capital of wales?")
         s12 = input("\tAnswer: ")
         if s12 == "Cardiff":
+          #Runs correct functio9n
             correct("Cardiff")
         else:
             incorrect("Cardiff")
     else:
-        print("Invalid inpout")
+        print("Invalid input")
+        health - 20
 
 
     #Story (Question 2)
@@ -102,6 +109,88 @@ def startGame():
             incorrect("False")
     else:
         print("Invalid input")
+        health - 20
+        
+        
+    #Story (Question 3)
+    print("\t-==Basement==-")
+    print("You are curious and see an entrance to a basement\n You try to open it up but it is stuck...")
+    print("You can (B)Break it open\nOR\nYou can (C)Use a crowbar")
+    s3 = input("\tAnswer:")
+    if s3 == "b":
+        print("You try to break it doesn't open\n You increase your power by answering the following question...")
+        s21 = input("What is the other presenter with Ant & D**?")
+        if s21 == "Dec":
+            correct("Dec")
+        else:
+            incorrect("Dec")
+    elif s2 == "C":
+        print("You try to go break it with the crowbar!\n You get in!")
+        correct("Nothing")
+    else:
+        print("Invalid input")
+        health - 20
+        
+        
+    
+    #Story (Question 4)
+    print("\n\n\n\t-==The Zoo==-")
+    print("You help a animal back into the zoo!")
+    print("You can (O)Open the cage\nOR\nYou can (B)Break in!")
+    
+    #Asks for answer
+    s4 = input("\tAnswer:")
+    
+    # Checks what route they want ot take
+    if s4 == "B":
+        print("You break in")
+        s41 = input("What is the largest land animal?")
+        if s41 == "Elephant":
+            correct("Elephant")
+        else:
+            incorrect("Elephant")
+    elif s4 == "O":
+        print("You open the cage")
+        print("What is the longest river in the world?")
+        s42 = input("\tAnswer: ")
+        if s42 == "Nile":
+          #Runs correct function
+            correct("Nile")
+        else:
+            incorrect("Nile")
+    else:
+        print("Invalid input")
+        health - 20
+        
+    #Story (Question 5)
+    print("\n\n\n\t-==The War==-")
+    print("You enter war")
+    print("You can (F)Fight\nOR\nYou can (S)Sit and watch")
+    
+    #Asks for answer
+    s5 = input("\tAnswer:")
+    
+    # Checks what route they want ot take
+    if s5 == "F":
+        print("You fight")
+        s51 = input("What is the largest contry by land?")
+        if s51 == "Russia":
+            correct("Russia")
+        else:
+            incorrect("Russia")
+    elif s5 == "S":
+        print("You open the cage")
+        print("What is the largest contry by land?")
+        s52 = input("\tAnswer: ")
+        if s52 == "Russia":
+          #Runs correct function
+            correct("Russia")
+        else:
+            incorrect("Russia")
+    else:
+        print("Invalid input")
+        health - 20
+
     
 
         
@@ -110,3 +199,5 @@ def startGame():
 
 while run:
     startGame()
+    if health <= 0:
+      exit()
